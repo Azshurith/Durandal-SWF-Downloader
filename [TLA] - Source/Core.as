@@ -88,16 +88,16 @@
 		public function onButtonClick(event: MouseEvent):void {
 			trace("[Request] SWF Downloader Button Click (" + event.currentTarget.name + ")");
 			switch (event.currentTarget.name) {
-                case "btnCopyNotDownloaded":
+				case "btnCopyNotDownloaded":
 					System.setClipboard(txtNotDownloaded.text);
 					break;
-                case "btnCopyDownloaded":
+				case "btnCopyDownloaded":
 					System.setClipboard(txtDownloaded.text);
 					break;
 				case "btnClearNotDownloaded":
 					txtNotDownloaded.text = "";
 					break;
-                case "btnClearDownloadad":
+				case "btnClearDownloadad":
 					txtDownloaded.text = "";
 					break;
 				case "btnDownload":
@@ -106,7 +106,7 @@
 						var downloader:Downloader = new Downloader();
 						downloader.download(this, url);
 					}
-                    break;
+					break;
 			}
 		}
 
