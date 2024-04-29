@@ -6,13 +6,36 @@
 	import flash.filesystem.*;
 	import flash.display.MovieClip;
 
+	/**
+	 * The Downloader class handles downloading files from URLs.
+	 */
 	public class Downloader {
 
+		/**
+		 * The ByteArray object to hold the downloaded file data.
+		 */
 		public var fileData: ByteArray = new ByteArray();
+		
+		/**
+		 * The URLStream object for loading the file from a URL.
+		 */
 		public var urlStream: URLStream = new URLStream();
+		
+		/**
+		 * The URL of the file to be downloaded.
+		 */
 		public var urlData: String;
+		
+		/**
+		 * Reference to the root MovieClip class.
+		 */
 		public var rootClass: MovieClip;
 
+		/**
+		 * Initiates the download process.
+		 * @param core The root MovieClip class.
+		 * @param url The URL of the file to download.
+		 */
 		public function download(core: MovieClip, url: String) {
 			trace("[DOWNLOADING] : " + url);	
 			var urlRequest: URLRequest = new URLRequest(url);
@@ -22,6 +45,10 @@
 			rootClass = core;
 		}
 
+		/**
+		 * Event handler for when the download is complete.
+		 * @param event The complete event.
+		 */
 		public function onDownloadComplete(event: Event): void {
 			trace("[DOWNLOADED] : " + urlData);
 			var path:String = urlData.replace("https://game.aq.com/game/", "");
